@@ -1,27 +1,40 @@
 body {
-  background-color: black;
   margin: 0;
   overflow: hidden;
-  height: 100vh;
-  cursor: pointer;
+  background-color: black;
+  font-family: sans-serif;
 }
 
-.frase {
+.word {
   position: absolute;
+  top: -50px;
   font-size: 24px;
-  font-weight: bold;
+  color: red;
   animation: caer 5s linear forwards;
   user-select: none;
-  pointer-events: none;
 }
 
 @keyframes caer {
-  from {
-    top: -50px;
-    opacity: 1;
-  }
   to {
-    top: 100vh;
+    transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+.mensaje {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  color: white;
+  background: rgba(255, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+  animation: desaparecer 2s forwards;
+}
+
+@keyframes desaparecer {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
