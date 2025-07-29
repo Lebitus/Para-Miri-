@@ -1,40 +1,47 @@
 body {
   margin: 0;
   overflow: hidden;
-  background-color: black;
-  font-family: sans-serif;
+  background: black;
+  cursor: pointer;
 }
 
-.word {
+.letra {
   position: absolute;
-  top: -50px;
-  font-size: 24px;
-  color: red;
-  animation: caer 5s linear forwards;
+  top: -40px;
+  font-size: 40px;
+  color: #ff4dff;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px #ff4dff;
+  animation: caer 6s linear infinite;
   user-select: none;
+  pointer-events: none;
 }
 
 @keyframes caer {
   to {
-    transform: translateY(100vh);
+    transform: translateY(110vh);
     opacity: 0;
   }
 }
 
-.mensaje {
+.click-msg {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 28px;
-  color: white;
-  background: rgba(255, 0, 0, 0.2);
-  padding: 10px 20px;
-  border-radius: 10px;
-  animation: desaparecer 2s forwards;
+  font-size: 36px;
+  color: #ff69b4;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 8px #ff69b4;
+  pointer-events: none;
+  opacity: 1;
+  animation: dispersar 2s forwards;
 }
 
-@keyframes desaparecer {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+@keyframes dispersar {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--dx), var(--dy)) scale(1.5);
+    opacity: 0;
+  }
 }
