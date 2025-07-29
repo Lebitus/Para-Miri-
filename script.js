@@ -1,22 +1,31 @@
-const palabras = ["Preciosa", "Bella", "Guapa", "Encantadora", "Miri", "Mi amor", "Hermosa", "Linda", "Princesa"];
+const container = document.getElementById('caida');
 
-function crearPalabra() {
-  const palabra = document.createElement("div");
-  palabra.classList.add("word");
-  palabra.textContent = palabras[Math.floor(Math.random() * palabras.length)];
-  palabra.style.left = Math.random() * 100 + "vw";
-  palabra.style.color = Math.random() > 0.5 ? "red" : "pink";
-  document.body.appendChild(palabra);
-
-  setTimeout(() => palabra.remove(), 5000);
+// Crea letras "Te amo" cayendo constantemente
+function crearLetra() {
+  const div = document.createElement('div');
+  div.className = 'letra';
+  div.textContent = 'Te amo';
+  div.style.left = Math.random() * 100 + 'vw';
+  div.style.animationDuration = (4 + Math.random() * 2) + 's';
+  container.appendChild(div);
+  setTimeout(() => div.remove(), 6500);
 }
 
-function mostrarMensaje() {
-  const mensaje = document.createElement("div");
-  mensaje.classList.add("mensaje");
-  mensaje.textContent = "Te amo Miri ❤️";
-  document.body.appendChild(mensaje);
-  setTimeout(() => mensaje.remove(), 2000);
-}
+setInterval(crearLetra, 400);
 
-setInterval(crearPalabra, 500);
+// Al hacer click: dispersar múltiples "Te amo Miri ❤️"
+function clickMensaje() {
+  for (let i = 0; i < 15; i++) {
+    const msg = document.createElement('div');
+    msg.className = 'click-msg';
+    msg.textContent = 'Te amo Miri ❤️';
+    const dx = (Math.random() - 0.5) * 100 + 'vw';
+    const dy = (Math.random() - 0.5) * 100 + 'vh';
+    msg.style.setProperty('--dx', dx);
+    msg.style.setProperty('--dy', dy);
+    msg.style.left = '50vw';
+    msg.style.top = '50vh';
+    document.body.appendChild(msg);
+    msg.addEventListener('animationend', () => msg.remove());
+  }
+}
