@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: 'Courier New', Courier, monospace;
+  color: pink;
+  text-align: center;
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 3em;
+  color: hotpink;
+  text-shadow: 0 0 15px pink;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
