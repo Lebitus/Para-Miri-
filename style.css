@@ -1,35 +1,27 @@
 body {
-  background: linear-gradient(to bottom right, #ffb6c1, #ff0000);
-  color: white;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
+  background-color: black;
   margin: 0;
-  padding: 0;
-}
-
-.container {
-  margin-top: 100px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background: white;
-  color: red;
-  border: none;
-  border-radius: 10px;
+  overflow: hidden;
+  height: 100vh;
   cursor: pointer;
 }
 
-.heart {
+.frase {
   position: absolute;
-  color: red;
   font-size: 24px;
-  animation: float 6s infinite ease-in;
+  font-weight: bold;
+  animation: caer 5s linear forwards;
+  user-select: none;
+  pointer-events: none;
 }
 
-@keyframes float {
-  0% { transform: translateY(100vh); opacity: 0; }
-  100% { transform: translateY(-100vh); opacity: 1; }
+@keyframes caer {
+  from {
+    top: -50px;
+    opacity: 1;
+  }
+  to {
+    top: 100vh;
+    opacity: 0;
+  }
 }
