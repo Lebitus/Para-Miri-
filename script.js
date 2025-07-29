@@ -1,35 +1,22 @@
-const palabras = [
-  "Preciosa", "Te amo", "Bella", "Divina", "Hermosa", "Guapa"
-];
+const palabras = ["Preciosa", "Bella", "Guapa", "Encantadora", "Miri", "Mi amor", "Hermosa", "Linda", "Princesa"];
 
-function crearFrase() {
-  const frase = document.createElement("div");
-  frase.classList.add("frase");
-  frase.innerText = palabras[Math.floor(Math.random() * palabras.length)];
-  
-  const colores = ["#ff4d6d", "#ff0000"]; // rosa y rojo
-  frase.style.color = colores[Math.floor(Math.random() * colores.length)];
-  frase.style.left = Math.random() * 100 + "vw";
+function crearPalabra() {
+  const palabra = document.createElement("div");
+  palabra.classList.add("word");
+  palabra.textContent = palabras[Math.floor(Math.random() * palabras.length)];
+  palabra.style.left = Math.random() * 100 + "vw";
+  palabra.style.color = Math.random() > 0.5 ? "red" : "pink";
+  document.body.appendChild(palabra);
 
-  document.body.appendChild(frase);
-
-  setTimeout(() => {
-    frase.remove();
-  }, 5000);
+  setTimeout(() => palabra.remove(), 5000);
 }
-
-setInterval(crearFrase, 800);
 
 function mostrarMensaje() {
   const mensaje = document.createElement("div");
-  mensaje.classList.add("frase");
-  mensaje.innerText = "Te amo Miri ❤️";
-  mensaje.style.color = "#ff4d6d";
-  mensaje.style.left = Math.random() * 100 + "vw";
-  mensaje.style.top = Math.random() * 100 + "vh";
+  mensaje.classList.add("mensaje");
+  mensaje.textContent = "Te amo Miri ❤️";
   document.body.appendChild(mensaje);
-  
-  setTimeout(() => {
-    mensaje.remove();
-  }, 3000);
+  setTimeout(() => mensaje.remove(), 2000);
 }
+
+setInterval(crearPalabra, 500);
